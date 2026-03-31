@@ -6,7 +6,7 @@ face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_fronta
 
 cap = cv2.VideoCapture(0)
 
-# lần cuối phát hiện khuôn mặt của ae nhá
+# lần cuối phát hiện khuôn mặt 
 last_seen = time.time()
 
 while True:
@@ -24,8 +24,8 @@ while True:
     else:
         print('no face detected', end = '\r')
 
-    if time.time() - last_seen > 5: # dòng này ae có thể chỉnh thời gian khi ae rời khỏi máy bao nhiêu seconds thì nó sẽ khóa
-                                    # ví dụ ae muốn dưới 5s thì để last_seen > 5:, còn muốn ít hơn thì tùy ae, ví dụ last_seen > 2: là khi ae rời khỏi máy dưới 2s thì sẽ tự động khóa máy
+    if time.time() - last_seen > 2: # dòng này có thể chỉnh thời gian khi rời khỏi máy bao nhiêu seconds thì nó sẽ khóa
+                                    # ví dụ muốn dưới 5s thì để last_seen > 5:, còn muốn ít hơn thì tùy bà nhe, ví dụ last_seen > 2: là khi bà rời khỏi máy dưới 2s thì nó sẽ tự động khóa máy
         print('\nLocking System')
         os.system('rundll32.exe user32.dll,LockWorkStation')
         break
